@@ -1,15 +1,36 @@
+import clsx from "clsx";
+import { useState } from "react";
 
 export default function Header() {
+
+  const [theme, setTheme] = useState("light");
+  const toggleTheme = () => setTheme((prevTheme) => prevTheme === 'light' ? 'dark' : 'light');
+
   return (
-    <div className="p-4 border-b-2 transition-colors duration-300 border-gray-200 bg-white text-gray-800">
-        <div className="flex justify-between items-center max-w-4xl mx-auto">
-            <h1 className="text-2xl font-bold">My APP</h1>
-            <div className="flex items-center gap-4">
-                <span>Welcome, Guest</span>
-                <button className="px-4 py-2 rounded-lg font-medium transition-colors bg-gray-800 text-white hover:bg-gray-700 cursor-pointer">☀️ Light</button>
-            </div>
+    <header
+      className={clsx(
+        "p-4 border-b-2 transition-colors duration-300",
+        theme === "light" && "bg-white border-gray-200 text-gray-800",
+        theme === "dark" && "bg-gray-800 border-gray-600 text-white"
+      )}
+    >
+      <div className="flex justify-between items-center max-w-4xl mx-auto">
+        <h1 className="text-2xl font-bold">My APP</h1>
+        <div className="flex items-center gap-4">
+          <span className="">Welcome, Guest</span>
+          <button
+            onClick={toggleTheme}
+            className={clsx(
+              "px-4 py-2 rounded-lg font-medium transition-colors cursor-pointer",
+              theme === "light" && "bg-gray-800 text-white hover:bg-gray-700",
+              theme === "dark" && "bg-white text-gray-800 hover:bg-gray-100"
+            )}
+          >
+            {theme === "light" ? "🌙 Dark" : "☀️ Light"}
+          </button>
         </div>
-    </div>
-  )
+      </div>
+    </header>
+  );
 }
-// {theme === "light" ? "🌙 Dark" : "☀️ Light"}
+// 🌙 Dark, ☀️ Light
