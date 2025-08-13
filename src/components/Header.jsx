@@ -1,11 +1,5 @@
 import clsx from "clsx";
-import { useState } from "react";
-
-export default function Header() {
-
-  const [theme, setTheme] = useState("light");
-  const toggleTheme = () => setTheme((prevTheme) => prevTheme === 'light' ? 'dark' : 'light');
-
+export default function Header({ theme, toggleTheme }) {
   return (
     <header
       className={clsx(
