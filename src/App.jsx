@@ -13,6 +13,7 @@ export default function App() {
   const decrease = () => {
     setCount2((prevCount) => prevCount - 1);
   };
+
   // useEffect(() => {
   //   console.log("inside useEffect");
   //   if (count > 10) {
@@ -23,11 +24,17 @@ export default function App() {
   //   }
   // }, [count]);
   // console.log(`count = ${count}`);
+
   useEffect(()=>{
     console.log("inside useEffect 1")
+
+    // at the time of unmount
+    // return () => {
+    //   alert("i am going");
+    // }
   }, [count]);
   useEffect(()=>{
-    console.log("inside useEffect 2")
+    console.log("inside useEffect 1")
   }, [count2]);
   return (
     <div className="bg-white text-center flex flex-col items-center justify-center min-h-screen space-y-4">
