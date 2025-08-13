@@ -1,6 +1,8 @@
 import clsx from "clsx";
+import useTheme from "../hooks/useTheme";
 
-export default function Sidebar({ theme }) {
+export default function Sidebar() {
+  const { theme } = useTheme();
   const menuItems = ["Dashboard", "Profile", "Settings", "Help"];
   const menuItem = menuItems.map((item, index) => (
     <li key={index}>
