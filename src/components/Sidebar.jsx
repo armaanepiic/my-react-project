@@ -1,12 +1,17 @@
 import clsx from "clsx";
 import useTheme from "../hooks/useTheme";
+import { useNavigate } from "react-router";
 
 export default function Sidebar() {
+  const navigate = useNavigate();
   const { theme } = useTheme();
   const menuItems = ["Dashboard", "Profile", "Settings", "Help"];
   const menuItem = menuItems.map((item, index) => (
     <li key={index}>
       <button
+        onClick={() => {
+          navigate(`/${item.toLocaleLowerCase()}`);
+        }}
         className={clsx(
           "w-full text-left p-2 rounded hover:bg-opacity-80 transition-color duration-200 cursor-pointer hover:scale-105 font-semibold",
           theme === "light" && "hover:bg-gray-800 hover:text-gray-50",
