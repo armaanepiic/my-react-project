@@ -1,6 +1,3 @@
-const hello = () => {
+export const hello = () => {
     console.log("hello");
-}
-module.exports = {
-    hello,
 }
