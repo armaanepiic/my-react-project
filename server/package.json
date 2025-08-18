@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "main": "src/app.js",
   "scripts": {
+    "start": "node .",
+    "dev": "nodemon .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -10,5 +12,8 @@
   "description": "",
   "dependencies": {
     "express": "^5.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
   }
 }
