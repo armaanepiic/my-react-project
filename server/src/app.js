@@ -1,33 +1,25 @@
 import express from "express";
 import cors from "cors";
 import envConfig from "./config/envConfig.js";
-import { mockProducts } from "./mockdata.js";
+import configureRouters from "./routers/index.js";
 
 const app = express();
 
 app.use(express.json());
-app.use(cors({
-  origin: envConfig.ALLOWED_ORIGINALLOWED_ORIGIN,
+app.use(
+  cors({
+    origin: envConfig.ALLOWED_ORIGIN,
+  })
+);
 
-}));
+const logger = (req, res, next) => {
+  console.log(`[${new Date().toISOString()}]: ${req.method} ${req.url}`);
+  next();
+};
+app.use(logger);
 
+configureRouters(app);
 
-
-const port = envConfig.PORT;
-
-app.get("/status", (req, res) => {
-    res.json(
-      {
-        message: "Hello World!"
-      }
-    );
-});
-
-app.get("/api/products", (req, res) => {
-  res.status(200).json(mockProducts)
-})
-
-
-app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+app.listen(envConfig.PORT, () => {
+  console.log(`Example app listening on port ${envConfig.PORT}`);
 });
