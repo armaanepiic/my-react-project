@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import envConfig from "./config/envConfig.js";
 import configureRouters from "./routers/index.js";
+import {logger} from "./middlewares/index.js";
 
 const app = express();
 
@@ -12,10 +13,7 @@ app.use(
   })
 );
 
-const logger = (req, res, next) => {
-  console.log(`[${new Date().toISOString()}]: ${req.method} ${req.url}`);
-  next();
-};
+
 app.use(logger);
 
 configureRouters(app);
