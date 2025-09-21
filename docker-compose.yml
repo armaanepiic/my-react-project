@@ -1,0 +1,12 @@
+services:
+    pma-mongo:
+        image: mongo
+        ports:
+            - "27017:27017"
+
+
+
+
+
+# docker compose exec -it pma-mongo sh
+# mongosh
