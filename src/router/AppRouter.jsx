@@ -1,11 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router";
 
 import About from "../pages/About";
+import Dashboard from "../pages/Dashboard";
 import Login from "../pages/Login";
 import NotFound from "../pages/NotFound";
-import RootLayout from "../pages/RootLayout";
-import Dashboard from "../pages/Dashboard";
 import Profile from "../pages/Profile";
+import RootLayout from "../pages/RootLayout";
 
 export default function AppRouter() {
   return (
