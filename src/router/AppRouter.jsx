@@ -1,11 +1,14 @@
 import { BrowserRouter, Route, Routes } from "react-router";
 
-import About from "../pages/About";
-import Dashboard from "../pages/Dashboard";
-import Login from "../pages/Login";
-import NotFound from "../pages/NotFound";
-import Profile from "../pages/Profile";
-import RootLayout from "../pages/RootLayout";
+import {
+  About,
+  Dashboard,
+  Login,
+  NotFound,
+  ProductManagement,
+  Profile,
+  RootLayout,
+} from "../pages";
 
 export default function AppRouter() {
   return (
@@ -14,6 +17,7 @@ export default function AppRouter() {
         <Route path="/" element={<RootLayout />}>
           <Route index element={<Dashboard />} />
           <Route path="dashboard" element={<Dashboard />} />
+          <Route path="products" element={<ProductManagement />} />
           <Route path="profile" element={<Profile />} />
           <Route path="profile/:profileId" element={<Profile />} />
           <Route path="settings" element={<h1>settings</h1>} />
