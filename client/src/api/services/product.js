@@ -1,6 +1,6 @@
-import axios from "axios";
+import http from "../../config/http";
 
 export const getProducts = async () => {
-  const res = await axios.get("http://localhost:5000/api/products");
+  const res = await http.get("/api/products");
   return res.data;
 };
