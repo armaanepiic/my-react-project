@@ -1,8 +1,6 @@
 import axios from "axios";
 
 export const getProducts = async () => {
-  const res = await axios.get(
-    "https://mdn.github.io/learning-area/javascript/apis/fetching-data/can-store/products.json",
-  );
+  const res = await axios.get("http://localhost:5000/api/products");
   return res.data;
 };
